@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="masukan deskripsi">
+    <meta name="keywords" content="masukan kata kunci/tag">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <title>Landing Page Jualan Ruko</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        main {
+            width: 100% !important;
+            display: block;
+        }
+        .hero {
+            display: flex;
+        }
+        .content-hero {
+            background-image: url('image/hero-image.png');
+            background-size: cover;
+            background-position: center;
+            padding: 60px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+        }
+        .content-hero h2 {
+            font-weight: 700;
+            font-size: 45px;
+            line-height: 53px;
+            color: #FFFFFF;
+            margin-bottom: 30px;
+        }
+        .btn-primary {
+            background: #FFB800;
+            border: 1px solid #FFB800;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .card-detail-hero {
+            width: 350px;
+            display: block;
+            background-color: #165EE9;
+            padding: 60px 30px;
+        }
+        .item-detail-hero {
+            margin-bottom: 30px;
+            display: flex;
+        }
+        .item-detail-hero .detail {
+            margin-left: 15px;
+        }
+        .item-detail-hero .detail h6 {
+            color: #ffffff;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .item-detail-hero .detail p {
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: normal;
+        }
+
+        .content {
+            margin-top: 60px;
+            margin-bottom: 30px;
+        }
+
+        .detail-ruko {
+            display: block;
+        }
+        .detail-ruko .detail {
+            width: 100%;
+            display: inline-flex;
+            flex-wrap: wrap;
+        }
+        .detail-ruko .detail img {
+            margin: 10px;
+        }
+        .detail-ruko .detail .img-1 {
+            width: 40%;
+        }
+        .detail-ruko .detail .img-2 {
+            width: 55%;
+        }
+        .detail-ruko .detail .img-3 {
+            width: 100%;
+        }
+
+        .detail-ruko h5 {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            font-size: 22px;
+            font-weight: 500;
+            color: #010918;
+        }
+        .detail-ruko p {
+            font-size: 18px;
+            font-weight: normal;
+            line-height: 27px;
+        }
+        p.price {
+            font-weight: bold;
+            font-size: 22px;
+            color: #e91616;
+            margin-bottom: 30px;
+            margin-top: 20px;
+        }
+        .btn-secondary {
+            font-weight: bold;
+            background-color: #23a84b;
+            border: 1px solid #23a84b;
+            transition: all 500ms ease;
+        }
+        .btn-secondary:hover {
+            background-color: #1d863c;
+            border: 1px solid #1d863c;
+        }
+        .detail-ruko ul li {
+            color: #363636;
+            font-weight: normal;
+            padding: 5px 0px;
+            margin-bottom: 20x;
+            font-size: 16px;
+        }
+
+        @media (max-width:992px) {
+            .hero {
+                flex-direction: column;
+            }
+            .card-detail-hero {
+            width: 100%;
+            display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(2, auto);
+    grid-gap: 20px;
+            }
+            .item-detail-hero {
+            margin-bottom: 30px;
+            display: block;
+            }
+            .item-detail-hero .detail {
+            margin-left: 0px;
+            margin-top: 15px;
+        }
+        .detail-ruko .detail img {
+            margin: 0px;
+        }
+        .detail-ruko .detail .img-1 {
+            width: 40%;
+        }
+        .detail-ruko .detail .img-2 {
+            width: 60%;
+        }
+        .detail-ruko .detail .img-3 {
+            width: 100%;
+        }
+        .content-hero h2 {
+            font-size: 35px;
+        }
+        }
+
+        @media (max-width:454px) {
+            .card-detail-hero {
+            width: 100%;
+            display: block;
+            }
+            .detail-ruko .detail {
+            width: 100%;
+            display: block;
+        }
+        .detail-ruko .detail img {
+            width: 100% !important;
+            margin-bottom: 10px;
+        }
+        }
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background-color: #144cbd;
+        }
+        .spinner-border {
+            color: #ffffff;
+        }
+    </style>
+  </head>
+  <body>
+    <main>
+        <div class="d-flex justify-content-center loading align-items-center" id="loading">
+            <div class="spinner-border" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          </div>
+        <section class="hero">
+            <div class="content-hero one">
+                <h2>
+                    Jual Ruko GANDENG di Tanjung Duren Raya Strategis & Bebas Banjir
+                </h2>
+                <a href="#detail" id="tombol" class="btn btn-primary py-3 px-5">Cek Detailnya</a>
+            </div>
+            <div class="content-detail-hero two">
+                <div class="card-detail-hero">
+                    <div class="item-detail-hero">
+                        <img src="image/construction-icon-1-white.webp" alt="icon" width="50px" height="50px">
+                        <div class="detail align-self-center">
+                            <h6>
+                                Desain Minimalis
+                            </h6>
+                            <p>
+                                Exterior dan interior minimalis,
+                            </p>
+                        </div>
+                    </div>
+                    <div class="item-detail-hero">
+                        <img src="image/construction-icon-2-white.webp" alt="icon" width="50px" height="50px">
+                        <div class="detail align-self-center">
+                            <h6>
+                                Bangunan Berkualitas
+                            </h6>
+                            <p>
+                                Arsitek dan material berkualitas.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="item-detail-hero">
+                        <img src="image/construction-icon-3-white.webp" alt="icon" width="50px" height="50px">
+                        <div class="detail align-self-center">
+                            <h6>
+                                Tersedia Parkir
+                            </h6>
+                            <p>
+                                Jalan lebar parkir on street ada tukang parkir yang atur
+                            </p>
+                        </div>
+                    </div>
+                    <div class="item-detail-hero">
+                        <img src="image/construction-icon-4-white.webp" alt="icon" width="50px" height="50px">
+                        <div class="detail align-self-center">
+                            <h6>
+                                Lokasi Strategis
+                            </h6>
+                            <p>
+                                Ruko pinggir jalan dan sangat strategis
+                            </p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+        <section class="content">
+            <div class="container">
+                <div class="detail-ruko">
+                    <div class="detail">
+                        <img class="img-1" src="image/4.png" alt="ruko">
+                        <img class="img-2" src="image/3.png" alt="ruko">
+                        <img class="img-3" src="image/2.png" alt="ruko">
+                    </div>
+                    <h5 id="detail">Detail :</h5>
+                    <p>
+                        Ruko gandeng tanpa pemisah di tengah, sudah jadi satu bangunan jadi tidak perlu mengeluarkan biaya tambahan lagi untuk buang tembok di tengah.
+                    </p>
+                    <ul>
+                        <li>
+                            Luas tanah: 8 x 15m = 120m2 (sertifikat)
+                        </li>
+                        <li>
+                            area parkir di depan di ruko = 5 x 8m = 40m
+                        </li>
+                        <li>
+                            Luas tanah total = 160m2
+                        </li>
+                        <li>
+                            Luas bangunan: 450m2
+                        </li>
+                        <li>
+                            4 lantai & 3.5 lantai
+                        </li>
+                        <li>
+                            Sertifikat: SHM & HGB
+                        </li>
+                        <li>
+                            AC split 1PK: 11 unit
+                        </li>
+                        <li>
+                            Kamar tidur: 2
+                        </li>
+                        <li>
+                            Kamar mandi: 3
+                        </li>
+                        <li>
+                            Ruangan meeting, ruangan training
+                        </li>
+                        <li>
+                            Furnished, kondisi bagus
+                        </li>
+                        <li>
+                            Listrik: 24.000 watt
+                        </li>
+                        <li>
+                            5 (Lima) line telepon
+                        </li>
+                        <li>
+                            Bangunan sangat kokoh.
+                        </li>
+                        <li>
+                            100% bebas banjir.
+                        </li>
+                    </ul>
+                    <p class="price">Harga: Rp 8.500.000.000,-</p>
+                    <a href="#" class="btn btn-secondary py-3 px-4">Pesan Via WhatsApp</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+
+
+    <script>
+            window.addEventListener('load', function() {
+
+                //loading 
+                setTimeout(() => {
+                    document.querySelector('#loading').remove();
+                }, 600);
+            });
+
+                //scroll bottom detal
+                const detail = document.getElementById('detail');
+
+                const tombol = document.getElementById('tombol');
+                tombol.addEventListener('click', function(){
+                    detail.scrollTo();
+                })
+           
+    </script>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
